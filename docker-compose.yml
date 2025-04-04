@@ -1,0 +1,21 @@
+services:
+  gopull:
+    image: ghcr.io/altendorfme/gopull:latest
+    container_name: gopull
+    ports:
+      - 15800:15800
+    environment:
+      # PRIVATE mode (for private repositories with SSH authentication)
+      # - PRIVATE=true
+      # - DEPLOY_KEY=your-secret-key
+      
+      # Non-PRIVATE mode (for public repositories or simple HTTPS cloning)
+      - PRIVATE=false
+      - GIT_REPOURL=https://github.com/username/repository.git
+      # - DEPLOY_KEY=your-secret-key  # Optional in non-PRIVATE mode
+
+      - GITIGNORE="wp-content/,wp-config.php"
+    volumes:
+      - ./work/app:/app
+      - ./work/keys:/keys  # Only needed in PRIVATE mode
+    restart: unless-stopped
