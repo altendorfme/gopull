@@ -1,6 +1,9 @@
-# GoPull
-
-![Gopher Pull](https://github.com/altendorfme/gopull/blob/main/gopher.png)
+<div align="center">
+  <a href="altendorfme/gopull">
+    <img src="/gopher.png" alt="Logo" width="174" height="auto">
+  </a>
+</div>
+<h1 align="center">GoPull</h1>
 
 Automatic Git repository updates via deploy API in a Docker container.
 
